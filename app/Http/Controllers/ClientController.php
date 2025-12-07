@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
+    use AuthorizesRequests;
     /**
      * Display a listing of the resource.
      */
@@ -36,7 +38,9 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        //
+        $this->authorize('view', $client);
+
+        return view('clients.show', compact('client'));
     }
 
     /**

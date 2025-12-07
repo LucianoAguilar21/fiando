@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Fia;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 
 class FiaController extends Controller
 {
+
+    use AuthorizesRequests;
+
     /**
      * Display a listing of the resource.
      */
